@@ -14,7 +14,7 @@
     "logging",
     "hook"
   ],
-  "author": "Your Name <your.email@example.com>",
+  "author": "darljed <darl@darl.dev>",
   "repository": {
     "type": "git",
     "url": "https://github.com/yourusername/openclaw-splunk-logger.git"
