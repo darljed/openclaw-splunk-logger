@@ -1,0 +1,42 @@
+{
+  "name": "openclaw-splunk-logger",
+  "version": "1.0.0",
+  "description": "OpenClaw hook for logging to Splunk",
+  "main": "dist/handler.js",
+  "types": "dist/handler.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "openclaw",
+    "splunk",
+    "logging",
+    "hook"
+  ],
+  "author": "Your Name <your.email@example.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/openclaw-splunk-logger.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yourusername/openclaw-splunk-logger/issues"
+  },
+  "license": "MIT",
+  "openclaw": {
+    "hooks": ["./src"],
+    "extensions": ["./plugin.ts"]
+  },
+  "dependencies": {
+    "splunk-logging": "^0.11.1",
+    "@opentelemetry/api": "^1.9.0",
+    "@opentelemetry/sdk-node": "^0.52.0",
+    "@opentelemetry/exporter-trace-otlp-http": "^0.52.0",
+    "@opentelemetry/resources": "^1.25.0",
+    "@opentelemetry/semantic-conventions": "^1.25.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0"
+  }
+}

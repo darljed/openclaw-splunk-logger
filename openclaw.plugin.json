@@ -1,0 +1,99 @@
+{
+  "id": "splunk-logger",
+  "configSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "enabled": {
+        "type": "boolean",
+        "description": "Enable Splunk logging"
+      },
+      "splunk": {
+        "type": "object",
+        "description": "Splunk HEC configuration",
+        "additionalProperties": false,
+        "properties": {
+          "token": {
+            "type": "string",
+            "description": "Splunk HEC token"
+          },
+          "url": {
+            "type": "string",
+            "description": "Splunk HEC endpoint URL"
+          },
+          "source": {
+            "type": "string",
+            "description": "Event source (default: openclaw)"
+          },
+          "sourcetype": {
+            "type": "string",
+            "description": "Event source type (default: openclaw:plugin)"
+          },
+          "host": {
+            "type": "string",
+            "description": "Host identifier"
+          },
+          "maxRetries": {
+            "type": "number",
+            "description": "Max retry attempts (default: 3)"
+          },
+          "maxBatchCount": {
+            "type": "number",
+            "description": "Max events per batch (default: 10)"
+          },
+          "maxBatchSize": {
+            "type": "number",
+            "description": "Max batch size in bytes (default: 1024)"
+          }
+        },
+        "required": ["token", "url"]
+      },
+      "opentelemetry": {
+        "type": "object",
+        "description": "OpenTelemetry integration",
+        "additionalProperties": false,
+        "properties": {
+          "enabled": {
+            "type": "boolean",
+            "description": "Enable OpenTelemetry traces and metrics"
+          },
+          "serviceName": {
+            "type": "string",
+            "description": "Service name for traces (default: openclaw)"
+          },
+          "exporters": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": ["splunk", "otlp", "console"]
+            },
+            "description": "Exporters to use (default: [splunk])"
+          }
+        }
+      },
+      "events": {
+        "type": "object",
+        "description": "Event filtering configuration",
+        "additionalProperties": false,
+        "properties": {
+          "tools": {
+            "type": "boolean",
+            "description": "Log tool calls (default: true)"
+          },
+          "llm": {
+            "type": "boolean",
+            "description": "Log LLM usage (default: true)"
+          },
+          "messages": {
+            "type": "boolean",
+            "description": "Log messages (default: true)"
+          },
+          "agent": {
+            "type": "boolean",
+            "description": "Log agent lifecycle (default: true)"
+          }
+        }
+      }
+    }
+  }
+}
