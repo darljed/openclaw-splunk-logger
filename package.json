@@ -5,7 +5,7 @@
   "main": "dist/handler.js",
   "types": "dist/handler.d.ts",
   "scripts": {
-    "build": "tsc",
+    "build": "tsc && cp src/HOOK.md dist/",
     "prepublishOnly": "npm run build"
   },
   "keywords": [
@@ -24,7 +24,7 @@
   },
   "license": "MIT",
   "openclaw": {
-    "hooks": ["./src"],
+    "hooks": ["./dist"],
     "extensions": ["./plugin.ts"]
   },
   "dependencies": {
